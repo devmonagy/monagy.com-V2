@@ -25,6 +25,22 @@
       onload="this.media='all'"
     />
   </head>
+  <!-- Scroll to Top Button -->
+  <button
+    id="scrollToTop"
+    class="fixed bottom-6 right-6 w-10 h-10 flex items-center justify-center bg-[var(--card-bg)] border border-white/20 rounded-full cursor-pointer opacity-0 pointer-events-none transition-all"
+    style="border-color: var(--border-color)"
+    title="Scroll to top"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-5 h-5 fill-current"
+      viewBox="0 0 24 24"
+    >
+      <path d="M12 4l-8 8h6v8h4v-8h6z" />
+    </svg>
+  </button>
+
   <body
     class="bg-[var(--bg)] text-[var(--text)] transition-colors duration-500"
   >
@@ -63,6 +79,7 @@
         <div
           id="themeToggle"
           class="w-10 h-10 flex items-center justify-center bg-[var(--card-bg)] border border-white/20 rounded-full cursor-pointer relative"
+          style="border-color: var(--border-color)"
         >
           <svg
             id="iconMoon"

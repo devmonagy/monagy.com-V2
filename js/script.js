@@ -1,3 +1,4 @@
+// Navigation active link highlighting
 const links = document.querySelectorAll("nav a");
 const sections = document.querySelectorAll("section");
 const wrapper = document.getElementById("navbarWrapper");
@@ -24,8 +25,19 @@ window.addEventListener("scroll", () => {
   });
 
   wrapper.classList.toggle("scrolled", window.scrollY > 20);
+
+  // Scroll-to-top button visibility
+  const scrollBtn = document.getElementById("scrollToTop");
+  if (scrollBtn) {
+    if (window.scrollY > 300) {
+      scrollBtn.classList.add("opacity-100", "pointer-events-auto");
+    } else {
+      scrollBtn.classList.remove("opacity-100", "pointer-events-auto");
+    }
+  }
 });
 
+// Theme toggle
 const themeToggle = document.getElementById("themeToggle");
 if (localStorage.getItem("theme") === "light") {
   document.body.classList.add("light");
@@ -38,3 +50,11 @@ themeToggle.addEventListener("click", () => {
     document.body.classList.contains("light") ? "light" : "dark"
   );
 });
+
+// Scroll to top button click
+const scrollBtn = document.getElementById("scrollToTop");
+if (scrollBtn) {
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}

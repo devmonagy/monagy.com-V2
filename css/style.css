@@ -6,7 +6,7 @@
   --badge-bg: #2d3748;
   --hover-glow: rgba(88, 166, 255, 0.2);
   --border-color: rgba(255, 255, 255, 0.1);
-  --text-contrast: #d1d5db; /* default for dark mode */
+  --text-contrast: #d1d5db;
 }
 
 body.light {
@@ -17,7 +17,7 @@ body.light {
   --badge-bg: #e2e8f0;
   --hover-glow: rgba(0, 122, 204, 0.12);
   --border-color: rgba(167, 169, 173, 0.2);
-  --text-contrast: #1a1a1a; /* set specifically for light mode */
+  --text-contrast: #1a1a1a;
 }
 
 * {
@@ -38,32 +38,32 @@ body {
   transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* LIGHT MODE code syntax colors */
+/* LIGHT MODE code syntax */
 body.light pre code span.keyword {
-  color: #af00db; /* purple */
+  color: #af00db;
 }
 body.light pre code span.function {
-  color: #795e26; /* dark brown */
+  color: #795e26;
 }
 body.light pre code span.variable {
-  color: #001080; /* dark blue */
+  color: #001080;
 }
 body.light pre code span.control {
-  color: #0000ff; /* blue */
+  color: #0000ff;
 }
 
-/* DARK MODE code syntax colors */
+/* DARK MODE code syntax */
 body:not(.light) pre code span.keyword {
-  color: #c586c0; /* light purple */
+  color: #c586c0;
 }
 body:not(.light) pre code span.function {
-  color: #dcdcaa; /* soft yellow */
+  color: #dcdcaa;
 }
 body:not(.light) pre code span.variable {
-  color: #9cdcfe; /* sky blue */
+  color: #9cdcfe;
 }
 body:not(.light) pre code span.control {
-  color: #569cd6; /* light blue */
+  color: #569cd6;
 }
 
 /* NAVBAR */
@@ -87,9 +87,8 @@ body:not(.light) pre code span.control {
   justify-content: space-between;
   align-items: center;
   padding: 0.6rem 0;
-  margin-left: max(20px, 5vw);
-  margin-right: max(20px, 5vw);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 0 max(20px, 5vw);
+  border-bottom: 1px solid var(--border-color);
 }
 
 nav ul {
@@ -131,13 +130,14 @@ nav a.active::after {
   transform-origin: left;
 }
 
-/* THEME TOGGLE */
-.theme-toggle {
+/* THEME TOGGLE + SCROLL TO TOP BUTTONS */
+.theme-toggle,
+.scroll-to-top {
   width: 42px;
   height: 42px;
   background: var(--card-bg);
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--text-contrast);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -146,7 +146,8 @@ nav a.active::after {
   transition: 0.3s ease;
 }
 
-.theme-toggle svg {
+.theme-toggle svg,
+.scroll-to-top svg {
   width: 22px;
   height: 22px;
   position: absolute;
@@ -165,6 +166,20 @@ body.light #iconSun {
 body.light #iconMoon {
   opacity: 0;
   transform: scale(0.5);
+}
+
+/* SCROLL TO TOP POSITIONING */
+.scroll-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
+.scroll-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* CONTENT */
@@ -204,7 +219,7 @@ h3 {
   background: var(--card-bg);
   padding: 1.5rem;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
   margin-bottom: 1.5rem;
   transition: 0.3s ease;
 }
@@ -213,10 +228,6 @@ h3 {
   border-color: var(--highlight);
   box-shadow: 0 0 10px var(--highlight);
   background: var(--hover-glow);
-}
-
-.tech-stack {
-  margin-left: 0;
 }
 
 .tech-stack span {
@@ -232,7 +243,7 @@ h3 {
 footer {
   text-align: center;
   padding: 2rem 1rem 3rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border-color);
   margin-top: 4rem;
 }
 
