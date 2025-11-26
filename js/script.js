@@ -1,0 +1,40 @@
+const links = document.querySelectorAll("nav a");
+const sections = document.querySelectorAll("section");
+const wrapper = document.getElementById("navbarWrapper");
+
+links.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute("href"));
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+});
+
+window.addEventListener("scroll", () => {
+  let pos = window.scrollY + 120;
+  sections.forEach((sec) => {
+    if (pos >= sec.offsetTop && pos < sec.offsetTop + sec.offsetHeight) {
+      links.forEach((a) => a.classList.remove("active"));
+      document
+        .querySelector(`nav a[href="#${sec.id}"]`)
+        ?.classList.add("active");
+    }
+  });
+
+  wrapper.classList.toggle("scrolled", window.scrollY > 20);
+});
+
+const themeToggle = document.getElementById("themeToggle");
+if (localStorage.getItem("theme") === "light") {
+  document.body.classList.add("light");
+}
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+  localStorage.setItem(
+    "theme",
+    document.body.classList.contains("light") ? "light" : "dark"
+  );
+});
