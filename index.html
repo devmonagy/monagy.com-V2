@@ -1,28 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mohamed Nagy | Front‑End Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="…"
+      crossorigin="anonymous"
+    />
+
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body>
+  <body
+    class="bg-[var(--bg)] text-[var(--text)] transition-colors duration-500"
+  >
     <!-- NAVBAR -->
-    <div class="navbar-wrapper" id="navbarWrapper">
-      <div class="navbar">
+    <div
+      id="navbarWrapper"
+      class="sticky top-0 z-50 w-full backdrop-blur-sm bg-[var(--bg)]/70 border-b transition-all"
+      style="border-color: var(--border-color)"
+    >
+      <div class="flex justify-between items-center px-6 py-3">
         <nav>
-          <ul>
-            <li><a href="#about" class="active">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
+          <ul class="flex gap-8 text-sm">
+            <li>
+              <a
+                href="#about"
+                class="active pb-1 border-b-2 border-transparent hover:text-[var(--highlight)] transition-all"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#experience"
+                class="pb-1 border-b-2 border-transparent hover:text-[var(--highlight)] transition-all"
+                >Experience</a
+              >
+            </li>
+            <li>
+              <a
+                href="#projects"
+                class="pb-1 border-b-2 border-transparent hover:text-[var(--highlight)] transition-all"
+                >Projects</a
+              >
+            </li>
           </ul>
         </nav>
-
-        <div class="theme-toggle" id="themeToggle">
+        <div
+          id="themeToggle"
+          class="w-10 h-10 flex items-center justify-center bg-[var(--card-bg)] border border-white/20 rounded-full cursor-pointer relative"
+        >
           <svg
             id="iconMoon"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
+            class="w-5 h-5 fill-current absolute opacity-100 scale-100 transition-all"
           >
             <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
           </svg>
@@ -30,6 +66,7 @@
             id="iconSun"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
+            class="w-5 h-5 fill-current absolute opacity-0 scale-50 transition-all"
           >
             <circle cx="12" cy="12" r="5" />
             <g stroke="currentColor" stroke-width="2">
@@ -47,17 +84,20 @@
       </div>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div class="container">
-      <header>
-        <h1>Mohamed <span>Nagy</span></h1>
-        <h2>Crafting pixel‑perfect, user‑centric web experiences 🚀</h2>
-      </header>
+    <!-- Hero line directly under NAVBAR -->
+    <div class="max-w-3xl mx-auto px-4 py-10 text-left">
+      <h1 class="text-4xl font-bold mb-2">Mohamed Nagy</h1>
+      <p class="text-xl text-[var(--highlight)]">
+        Crafting pixel‑perfect, user‑centric web experiences 🚀
+      </p>
+    </div>
 
-      <!-- ABOUT -->
-      <section id="about">
-        <h3>About</h3>
-        <p>
+    <!-- MAIN CONTENT -->
+    <main class="max-w-3xl mx-auto px-4 py-0">
+      <!-- About -->
+      <section id="about" class="mt-0">
+        <h2 class="text-3xl font-bold mb-4">About</h2>
+        <p class="mb-4">
           Hi, I'm a web developer with a passion for building clean, responsive,
           and user-focused applications. I specialize in the MERN stack,
           combining modern front-end tools like React and TypeScript with robust
@@ -65,8 +105,7 @@
           performance, and creating seamless digital experiences that are both
           intuitive and enjoyable across all devices and platforms.
         </p>
-        <br />
-        <p>
+        <p class="mb-4">
           My approach is rooted in writing clean, maintainable code and staying
           up-to-date with the latest in web technologies, frameworks, and
           development best practices. I enjoy building features that solve real
@@ -76,8 +115,7 @@
           valuable — and I thrive in environments where growth, collaboration,
           and creativity go hand in hand.
         </p>
-        <br />
-        <p>
+        <p class="mb-4">
           This portfolio showcases my journey, skill set, and recent work. I'm
           currently open to freelance opportunities, collaborations, or
           full-time roles where I can contribute meaningfully and continue
@@ -86,126 +124,191 @@
         </p>
       </section>
 
-      <!-- EXPERIENCE -->
-      <section id="experience">
-        <h3>Experience</h3>
-
-        <div class="tile">
-          <p><strong>2025 — Present</strong></p>
-          <h4>Software Developer · ADAPT Community Network</h4>
-          <p>Design, develop...</p>
-          <div class="tech-stack">
-            <span>Power Platform</span><span>Azure</span><span>SQL Server</span>
+      <!-- Experience -->
+      <section id="experience" class="mt-16">
+        <h2 class="text-3xl font-bold mb-6">Experience</h2>
+        <div class="space-y-6">
+          <div
+            class="bg-[var(--card-bg)] p-6 rounded-xl border border-white/10 hover:border-[var(--highlight)] hover:shadow-[0_0_10px_var(--highlight)] transition-all"
+          >
+            <p class="text-sm text-zinc-400 mb-1">2025 — Present</p>
+            <h4 class="text-lg font-semibold mb-1">
+              Software Developer · ADAPT Community Network
+            </h4>
+            <p class="mb-2">
+              Design, develop, and maintain Power Platform applications and web
+              tools for internal use.
+            </p>
+            <div class="flex flex-wrap gap-2 text-sm">
+              <span class="bg-[var(--badge-bg)] px-3 py-1 rounded-md"
+                >Power Platform</span
+              >
+              <span class="bg-[var(--badge-bg)] px-3 py-1 rounded-md"
+                >Azure</span
+              >
+              <span class="bg-[var(--badge-bg)] px-3 py-1 rounded-md"
+                >SQL Server</span
+              >
+            </div>
           </div>
-        </div>
 
-        <div class="tile">
-          <p><strong>2023 — 2025</strong></p>
-          <h4>Web Developer · ADAPT Community Network</h4>
-          <p>
-            Developed accessible WordPress websites using HTML, CSS, JavaScript
-            & PHP.
-          </p>
-          <div class="tech-stack">
-            <span>HTML</span><span>CSS</span><span>JavaScript</span
-            ><span>PHP</span><span>WordPress</span>
+          <div
+            class="bg-[var(--card-bg)] p-6 rounded-xl border border-white/10 hover:border-[var(--highlight)] hover:shadow-[0_0_10px_var(--highlight)] transition-all"
+          >
+            <p class="text-sm text-zinc-400 mb-1">2024 — 2025</p>
+            <h4 class="text-lg font-semibold mb-1">
+              Frontend Engineer · DevHub Inc
+            </h4>
+            <p class="mb-2">
+              Developed reusable component libraries and built performant SPAs
+              using React and Tailwind.
+            </p>
+            <div class="flex flex-wrap gap-2 text-sm">
+              <span class="bg-[var(--badge-bg)] px-3 py-1 rounded-md"
+                >React</span
+              >
+              <span class="bg-[var(--badge-bg)] px-3 py-1 rounded-md"
+                >TypeScript</span
+              >
+              <span class="bg-[var(--badge-bg)] px-3 py-1 rounded-md"
+                >Tailwind</span
+              >
+            </div>
           </div>
-        </div>
 
-        <div class="tile">
-          <p><strong>2021 — 2023</strong></p>
-          <h4>Junior Web Developer · ADAPT Community Network</h4>
-          <p>
-            Assisted with front‑end builds, accessibility QA, and UI
-            improvements.
-          </p>
-          <div class="tech-stack">
-            <span>HTML</span><span>CSS</span><span>Accessibility</span>
-          </div>
-        </div>
-
-        <div class="tile">
-          <p><strong>2020 — 2021</strong></p>
-          <h4>Intern · DevStudio</h4>
-          <p>Supported senior devs creating landing pages and fixing bugs.</p>
-          <div class="tech-stack">
-            <span>JavaScript</span><span>Git</span><span>Figma</span>
+          <div
+            class="bg-[var(--card-bg)] p-6 rounded-xl border border-white/10 hover:border-[var(--highlight)] hover:shadow-[0_0_10px_var(--highlight)] transition-all"
+          >
+            <p class="text-sm text-zinc-400 mb-1">2022 — 2024</p>
+            <h4 class="text-lg font-semibold mb-1">
+              Web Developer · Freelance
+            </h4>
+            <p class="mb-2">
+              Built websites and web apps for small businesses and startups
+              using JAMstack technologies.
+            </p>
+            <div class="flex flex-wrap gap-2 text-sm">
+              <span class="bg-[var(--badge-bg)] px-3 py-1 rounded-md"
+                >Next.js</span
+              >
+              <span class="bg-[var(--badge-bg)] px-3 py-1 rounded-md"
+                >Sanity</span
+              >
+              <span class="bg-[var(--badge-bg)] px-3 py-1 rounded-md"
+                >Vercel</span
+              >
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- PROJECTS -->
-      <section id="projects">
-        <h3>Projects</h3>
-
-        <div class="tile">
-          <h4>Portfolio Website</h4>
-          <p>Dark/light mode personal portfolio with animations & modern UI.</p>
-          <div class="tech-stack">
-            <span>HTML</span><span>CSS</span><span>JS</span>
-          </div>
-        </div>
-
-        <div class="tile">
-          <h4>DevTasker</h4>
-          <p>A fast developer task tool using React & LocalStorage.</p>
-          <div class="tech-stack">
-            <span>React</span><span>LocalStorage</span><span>Tailwind CSS</span>
-          </div>
-        </div>
-
-        <div class="tile">
-          <h4>Blog Platform</h4>
-          <p>Full‑stack MERN blog with authentication & rich‑text editor.</p>
-          <div class="tech-stack">
-            <span>MERN</span><span>Node.js</span><span>MongoDB</span
-            ><span>React</span>
+      <!-- Projects -->
+      <section id="projects" class="mt-16">
+        <h2 class="text-3xl font-bold mb-6">Projects</h2>
+        <div class="space-y-6">
+          <div
+            class="bg-[var(--card-bg)] p-6 rounded-xl border border-white/10 hover:border-[var(--highlight)] hover:shadow-[0_0_10px_var(--highlight)] transition-all"
+          >
+            <h4 class="text-lg font-semibold mb-1">BlogWebApp</h4>
+            <p class="mb-2">
+              A Medium‑like blogging platform built with React, Express, and
+              MongoDB.
+            </p>
+            <div class="flex flex-wrap gap-2 text-sm">
+              <span class="bg-[var(--badge-bg)] px-3 py-1 rounded-md"
+                >React</span
+              >
+              <span class="bg-[var(--badge-bg)] px-3 py-1 rounded-md"
+                >Node.js</span
+              >
+              <span class="bg-[var(--badge-bg)] px-3 py-1 rounded-md"
+                >MongoDB</span
+              >
+              <span class="bg-[var(--badge-bg)] px-3 py-1 rounded-md"
+                >Tailwind</span
+              >
+            </div>
           </div>
         </div>
       </section>
+    </main>
 
-      <!-- FOOTER -->
-      <footer>
-        <div class="icons">
-          <a
-            href="https://github.com/yourusername"
-            target="_blank"
-            title="GitHub"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path
-                d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.5-3.9-1.5-.6-1.3-1.4-1.6-1.4-1.6-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.3 1.8 1.3 1.1 1.8 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.2 11.2 0 0 1 5.4 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1 .8 2v3c0 .3.2.7.8.6C20.7 21.4 23.5 17 23.5 12 23.5 5.7 18.3.5 12 .5z"
-              />
-            </svg>
-          </a>
+    <!-- Footer -->
+    <footer class="mt-16 pt-6 border-none text-[var(--text)]">
+      <!-- Wrap everything inside container -->
+      <div class="max-w-3xl mx-auto px-6">
+        <!-- Full-width line inside container -->
+        <div
+          class="w-full h-px mb-5"
+          style="background-color: var(--border-color)"
+        ></div>
 
-          <a
-            href="https://linkedin.com/in/yourusername"
-            target="_blank"
-            title="LinkedIn"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path
-                d="M4.98 3a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4 8h2v12H4zM9 8h2v1.5h.03c.28-.5.98-1.02 2.02-1.02 2.17 0 2.57 1.42 2.57 3.27V20h-2v-6c0-1.43-.03-3.26-2-3.26s-2.3 1.56-2.3 3.17V20H9z"
-              />
-            </svg>
-          </a>
+        <!-- Footer content -->
+        <div
+          class="flex flex-col sm:flex-row sm:justify-between items-center gap-4"
+        >
+          <!-- Left: Copyright -->
+          <p class="text-sm text-zinc-500">© 2025 Mohamed Nagy</p>
 
-          <a
-            href="https://codepen.io/yourusername"
-            target="_blank"
-            title="CodePen"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path
-                d="M21.438 8.518l-9-6a1.003 1.003 0 0 0-1.113 0l-9 6A1.001 1.001 0 0 0 2 9.384v5.232a1 1 0 0 0 .438.866l9 6a1.003 1.003 0 0 0 1.124 0l9-6A1.001 1.001 0 0 0 22 14.616V9.384a1 1 0 0 0-.562-.866zM12 4.131 18.876 8.5 15.266 10.9 12 8.732 8.734 10.9 5.124 8.5 12 4.131zM4 10.616l2.934 2L4 14.616v-4zm8 9.253-6.876-4.369L8.734 13.1 12 15.268l3.266-2.168 3.61 1.4L12 19.869zm8-5.253-2.934-2L20 9.384v4z"
-              />
-            </svg>
-          </a>
+          <!-- Right: Social Icons -->
+          <div class="flex gap-6">
+            <!-- GitHub -->
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              title="GitHub"
+              class="hover:text-[var(--highlight)] transition-transform transform hover:scale-110"
+            >
+              <svg
+                class="w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.5-3.9-1.5-.6-1.3-1.4-1.6-1.4-1.6-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.3 1.8 1.3 1.1 1.8 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.2 11.2 0 0 1 5.4 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1 .8 2v3c0 .3.2.7.8.6C20.7 21.4 23.5 17 23.5 12 23.5 5.7 18.3.5 12 .5z"
+                />
+              </svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a
+              href="https://linkedin.com/in/yourusername"
+              target="_blank"
+              title="LinkedIn"
+              class="hover:text-[var(--highlight)] transition-transform transform hover:scale-110"
+            >
+              <svg
+                class="w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4.98 3a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4 8h2v12H4zM9 8h2v1.5h.03c.28-.5.98-1.02 2.02-1.02 2.17 0 2.57 1.42 2.57 3.27V20h-2v-6c0-1.43-.03-3.26-2-3.26s-2.3 1.56-2.3 3.17V20H9z"
+                />
+              </svg>
+            </a>
+
+            <!-- CodePen -->
+            <a
+              href="https://codepen.io/yourusername"
+              target="_blank"
+              title="CodePen"
+              class="hover:text-[var(--highlight)] transition-transform transform hover:scale-110"
+            >
+              <svg
+                class="w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M21.438 8.518l-9-6a1.003 1.003 0 0 0-1.113 0l-9 6A1.001 1.001 0 0 0 2 9.384v5.232a1 1 0 0 0 .438.866l9 6a1.003 1.003 0 0 0 1.124 0l9-6A1.001 1.001 0 0 0 22 14.616V9.384a1 1 0 0 0-.562-.866zM12 4.131 18.876 8.5 15.266 10.9 12 8.732 8.734 10.9 5.124 8.5 12 4.131zM4 10.616l2.934 2L4 14.616v-4zm8 9.253-6.876-4.369L8.734 13.1 12 15.268l3.266-2.168 3.61 1.4L12 19.869zm8-5.253-2.934-2L20 9.384v4z"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
-        <p>© 2025 Mohamed Nagy</p>
-      </footer>
-    </div>
+      </div>
+    </footer>
 
     <script src="js/script.js"></script>
   </body>
