@@ -36,6 +36,34 @@ body {
   transition: background 0.4s ease, color 0.4s ease;
 }
 
+/* LIGHT MODE code syntax colors */
+body.light pre code span.keyword {
+  color: #af00db; /* purple */
+}
+body.light pre code span.function {
+  color: #795e26; /* dark brown */
+}
+body.light pre code span.variable {
+  color: #001080; /* dark blue */
+}
+body.light pre code span.control {
+  color: #0000ff; /* blue */
+}
+
+/* DARK MODE code syntax colors */
+body:not(.light) pre code span.keyword {
+  color: #c586c0; /* light purple */
+}
+body:not(.light) pre code span.function {
+  color: #dcdcaa; /* soft yellow */
+}
+body:not(.light) pre code span.variable {
+  color: #9cdcfe; /* sky blue */
+}
+body:not(.light) pre code span.control {
+  color: #569cd6; /* light blue */
+}
+
 /* NAVBAR */
 .navbar-wrapper {
   width: 100%;

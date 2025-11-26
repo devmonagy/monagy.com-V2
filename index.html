@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mohamed Nagy | Front‑End Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Bootstrap Icons -->
     <link
       rel="stylesheet"
@@ -232,9 +237,28 @@
         </div>
       </section>
     </main>
+    <!-- Code Snippet Block Without Background -->
+    <!-- JavaScript Code Snippet -->
+    <div class="max-w-3xl mx-auto px-6 mt-16">
+      <pre
+        class="text-sm"
+        style="
+          color: var(--text);
+          font-family: 'Fira Code', 'Courier New', monospace;
+          white-space: pre-wrap;
+          word-break: break-word;
+        "
+      ><code>
+<span class="keyword">function</span> <span class="function">evolve</span>(<span class="variable">knowledge</span>, <span class="variable">age</span>, <span class="variable">life</span>) {
+  <span class="control">while</span> (age++ &lt; life.length) {
+    ++knowledge;
+  }
+  <span class="control">return</span> knowledge;
+}</code></pre>
+    </div>
 
     <!-- Footer -->
-    <footer class="mt-16 pt-6 border-none text-[var(--text)]">
+    <footer class="mt-16 pt-0 border-none text-[var(--text)]">
       <!-- Wrap everything inside container -->
       <div class="max-w-3xl mx-auto px-6">
         <!-- Full-width line inside container -->
