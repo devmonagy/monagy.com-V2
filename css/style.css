@@ -6,6 +6,7 @@
   --badge-bg: #2d3748;
   --hover-glow: rgba(88, 166, 255, 0.2);
   --border-color: rgba(255, 255, 255, 0.1);
+  --text-contrast: #d1d5db; /* default for dark mode */
 }
 
 body.light {
@@ -16,6 +17,7 @@ body.light {
   --badge-bg: #e2e8f0;
   --hover-glow: rgba(0, 122, 204, 0.12);
   --border-color: rgba(167, 169, 173, 0.2);
+  --text-contrast: #1a1a1a; /* set specifically for light mode */
 }
 
 * {
