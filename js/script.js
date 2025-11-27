@@ -58,3 +58,63 @@ if (scrollBtn) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
+
+//Card click change
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".experience-card").forEach((card) => {
+    const range = card.dataset.range;
+    const title = card.dataset.title;
+    const summary = card.dataset.summary;
+    const skills = (card.dataset.skills || "").split(",");
+    const details = (card.dataset.details || "")
+      .split(";")
+      .filter((d) => d.trim());
+
+    let expanded = false;
+
+    function renderDefault() {
+      card.innerHTML = `
+        <p class="text-sm text-zinc-400 mb-1">${range}</p>
+        <p class="text-lg font-semibold mb-1">${title}</p>
+        <p class="mb-2">${summary}</p>
+        <div class="flex flex-wrap gap-2 text-sm">
+          ${skills
+            .map(
+              (s) =>
+                `<span class="bg-[var(--badge-bg)] px-3 py-1 rounded-md">${s.trim()}</span>`
+            )
+            .join("")}
+        </div>
+      `;
+    }
+
+    function renderExpanded() {
+      card.innerHTML = `
+        <div class="fade-in">
+          <p class="text-sm text-zinc-400 mb-1">${range}</p>
+          <p class="text-lg font-semibold mb-3">${title}</p>
+          <ul class="list-disc pl-5 space-y-2 text-sm mb-4">
+            ${details.map((d) => `<li>${d.trim()}</li>`).join("")}
+          </ul>
+          <div class="flex flex-wrap gap-2 text-sm">
+            ${skills
+              .map(
+                (s) =>
+                  `<span class="bg-[var(--badge-bg)] px-3 py-1 rounded-md">${s.trim()}</span>`
+              )
+              .join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    // init
+    renderDefault();
+
+    card.addEventListener("click", () => {
+      expanded ? renderDefault() : renderExpanded();
+      expanded = !expanded;
+    });
+  });
+});
