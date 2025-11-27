@@ -26,7 +26,6 @@ window.addEventListener("scroll", () => {
 
   wrapper.classList.toggle("scrolled", window.scrollY > 20);
 
-  // Scroll-to-top button visibility
   const scrollBtn = document.getElementById("scrollToTop");
   if (scrollBtn) {
     if (window.scrollY > 300) {
@@ -42,7 +41,6 @@ const themeToggle = document.getElementById("themeToggle");
 if (localStorage.getItem("theme") === "light") {
   document.body.classList.add("light");
 }
-
 themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("light");
   localStorage.setItem(
@@ -59,10 +57,11 @@ if (scrollBtn) {
   });
 }
 
-//Card click change
+// Experience card toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".experience-card");
 
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".experience-card").forEach((card) => {
+  cards.forEach((card) => {
     const range = card.dataset.range;
     const title = card.dataset.title;
     const summary = card.dataset.summary;
@@ -87,6 +86,11 @@ document.addEventListener("DOMContentLoaded", function () {
             .join("")}
         </div>
       `;
+      card.classList.remove(
+        "glow",
+        "border-[var(--highlight)]",
+        "shadow-[0_0_10px_var(--highlight)]"
+      );
     }
 
     function renderExpanded() {
@@ -107,14 +111,71 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
         </div>
       `;
+      card.classList.add(
+        "glow",
+        "border-[var(--highlight)]",
+        "shadow-[0_0_10px_var(--highlight)]"
+      );
     }
 
-    // init
+    // Initialize
     renderDefault();
 
-    card.addEventListener("click", () => {
-      expanded ? renderDefault() : renderExpanded();
+    card.addEventListener("click", (e) => {
+      e.stopPropagation(); // prevent document click
       expanded = !expanded;
+      expanded ? renderExpanded() : renderDefault();
     });
   });
+
+  // Click-outside-to-close for experience cards (mobile only)
+  document.addEventListener("click", (e) => {
+    if (window.innerWidth <= 768 && !e.target.closest(".experience-card")) {
+      document.querySelectorAll(".experience-card").forEach((card) => {
+        const range = card.dataset.range;
+        const title = card.dataset.title;
+        const summary = card.dataset.summary;
+        const skills = (card.dataset.skills || "").split(",");
+
+        card.innerHTML = `
+          <p class="text-sm text-zinc-400 mb-1">${range}</p>
+          <p class="text-lg font-semibold mb-1">${title}</p>
+          <p class="mb-2">${summary}</p>
+          <div class="flex flex-wrap gap-2 text-sm">
+            ${skills
+              .map(
+                (s) =>
+                  `<span class="bg-[var(--badge-bg)] px-3 py-1 rounded-md">${s.trim()}</span>`
+              )
+              .join("")}
+          </div>
+        `;
+        card.classList.remove(
+          "glow",
+          "border-[var(--highlight)]",
+          "shadow-[0_0_10px_var(--highlight)]"
+        );
+      });
+    }
+  });
+
+  // Fix mobile "stuck hover" on project cards
+  if (window.innerWidth <= 768) {
+    const projectCards = document.querySelectorAll(
+      "#projects .hover\\:border-\\[var\\(--highlight\\)\\]"
+    );
+    projectCards.forEach((card) => {
+      card.addEventListener("touchstart", () => {
+        card.classList.remove(
+          "hover:border-[var(--highlight)]",
+          "hover:shadow-[0_0_10px_var(--highlight)]"
+        );
+        void card.offsetWidth; // trigger reflow
+        card.classList.add(
+          "hover:border-[var(--highlight)]",
+          "hover:shadow-[0_0_10px_var(--highlight)]"
+        );
+      });
+    });
+  }
 });
